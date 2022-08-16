@@ -22,8 +22,12 @@ function App() {
     <div className="App vh-100 bg-danger bg-gradient d-flex align-items-center">
       <div className="container bg-secondary shadow rounded-5 d-flex flex-column justify-content-evenly">
         <div className="result">
-          <h1 style={{ height: "50px" }}>{result}</h1>
-          <h3 style={{ height: "40px" }}>{expression}</h3>
+          <h1 className="w-100 text-end" style={{ height: "50px" }}>
+            {result}
+          </h1>
+          <h3 className="w-100 text-end" style={{ height: "40px" }}>
+            {expression}
+          </h3>
         </div>
 
         <div className="row">
