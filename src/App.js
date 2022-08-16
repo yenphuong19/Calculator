@@ -3,20 +3,27 @@ import "./App.css";
 
 function App() {
   const [result, setResult] = useState();
-  const [cal, setCal] = useState();
+  const [expression, setExpression] = useState();
+  console.log(expression, result);
 
-  console.log(cal);
   const handleChangeExpression = (e) => {
-    setCal((cal) => (cal ? cal + e.target.value : e.target.value));
+    setExpression((expression) =>
+      expression ? expression + e.target.value : e.target.value
+    );
   };
 
-  const handleReset = () => setCal();
+  const handleReset = () => setExpression();
+
+  const handleCalculation = () => {
+    let value = parseInt(expression);
+    setResult(value);
+  };
   return (
     <div className="App vh-100 bg-danger bg-gradient d-flex align-items-center">
       <div className="container bg-secondary shadow rounded-5 d-flex flex-column justify-content-evenly">
         <div className="result">
           <h1 style={{ height: "50px" }}>{result}</h1>
-          <h3 style={{ height: "40px" }}>{cal}</h3>
+          <h3 style={{ height: "40px" }}>{expression}</h3>
         </div>
 
         <div className="row">
@@ -128,7 +135,12 @@ function App() {
             >
               +
             </button>
-            <button className="btn btn-danger shadow">=</button>
+            <button
+              className="btn btn-danger shadow"
+              onClick={handleCalculation}
+            >
+              =
+            </button>
           </div>
         </div>
       </div>
