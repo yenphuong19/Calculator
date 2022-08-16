@@ -6,10 +6,8 @@ import OutputArea from "./components/OutputArea";
 function App() {
   const [result, setResult] = useState("");
   const [expression, setExpression] = useState("");
-  console.log(expression, result);
 
   const handleChangeExpression = (e) => {
-    // nếu expression rỗng, bấm %-/-x thì ko hiện
     let value = e.target.value;
 
     setExpression((expression) => (expression ? expression + value : value));
@@ -44,6 +42,7 @@ function App() {
     } catch {
       alert("Math error");
       setExpression("");
+      setResult("");
     }
   };
 
